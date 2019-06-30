@@ -1,13 +1,13 @@
     let query = { 
-				"sender_id": mongoose.Types.ObjectId(user_id),
-				"$expr": {
-					"$and": [
-						{"$eq":  [{ $dayOfMonth: "$createdAt" }, current_day ] },
-						{"$eq":  [{ $month: "$createdAt" }, current_month ] },
-						{"$eq":  [{ $year: "$createdAt" }, current_year ] },
-					]
-				}
-			}
+	"sender_id": mongoose.Types.ObjectId(user_id),
+	"$expr": {
+		"$and": [
+			{"$eq":  [{ $dayOfMonth: "$createdAt" }, current_day ] },
+			{"$eq":  [{ $month: "$createdAt" }, current_month ] },
+			{"$eq":  [{ $year: "$createdAt" }, current_year ] },
+		]
+	}
+}
     Looksee.aggregate([
         { '$match': query },
         {
